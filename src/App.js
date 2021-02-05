@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, {useContext, useReducer} from 'react';
 import './App.css';
+import ChooseYourPick from './Components/Main/main';
+import Store from './Context/context';
+import { usePersistedContext, usePersistedReducer } from "./Components/hooks/usePersist";
+import reducer from './Context/reducer/reducer';
+
 
 function App() {
+
+  const globalStore = usePersistedContext(useContext(Store), "state");
+
+  const [state, dispatch] = usePersistedReducer(
+    useReducer(reducer, globalStore),
+    "state"
+  );
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Store.Provider value={{state, dispatch}}>
+        <ChooseYourPick />  
+      </Store.Provider>
     </div>
   );
 }
