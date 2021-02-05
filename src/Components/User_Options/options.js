@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {PicksWrapper, SinglePick, ImageWrapper} from '../Styles/style';
+import {PicksWrapper, SinglePick, ImageWrapper} from '../Common_Styles/style';
 
 const UserPick = ({handleClick}) => {
     return(

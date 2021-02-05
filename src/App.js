@@ -1,8 +1,8 @@
 import React, {useContext, useReducer} from 'react';
 import './App.css';
-import ChooseYourPick from './Components/Main/main';
+import ChooseYourPick from './Components/Main_Component/main';
 import Store from './Context/context';
-import { usePersistedContext, usePersistedReducer } from "./Components/hooks/usePersist";
+import { usePersistedContext, usePersistedReducer } from "./Components/Hooks/usePersist";
 import reducer from './Context/reducer/reducer';
 
 

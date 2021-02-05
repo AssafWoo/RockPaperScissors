@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../Header/header';
 import { Body } from './style';
-import Rules from '../Rules/Popup/popup';
-import RulesButton from '../Rules/Button/button';
-import DisplayDuel from '../Duel/duel';
-import UserPick from '../Options/options';
+import Rules from '../Rules_Popup/Popup/popup';
+import RulesButton from '../Rules_Popup/Button/button';
+import DisplayDuel from '../Duel_Component/duel';
+import UserPick from '../User_Options/options';
 
 
 const ChooseYourPick = () => {

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { ResultsWrapper, Result, ResetButton} from './style';
-import {PicksWrapper, SinglePick, ImageWrapper} from '../Styles/style';
-import { useWinner } from '../hooks/useWinner';
+import {PicksWrapper, SinglePick, ImageWrapper} from '../Common_Styles/style';
+import { useWinner } from '../Hooks/useWinner';
 
 const PICKS = [{id:1, name:"scissors", src:"../../../images/icon-scissors.svg"}, {id:2, name:'paper', src:"../../../images/icon-paper.svg"}, {id:3,name:'rock', src:"../../../images/icon-rock.svg"}]
 
@@ -14,7 +14,7 @@ const DisplayDuel = ({handleClick, myPick, setIsPlaying}) => {
     const [housePick, setHousePick] = useState({id:null, name:null,src:null});
     const {gameResult, gameWinner, binaryWin} = useWinner(housePick, myPick);
 
-    useEffect(() => {
+    useEffect(() => { // create sort of dramatic tension
         setTimeout(() => {
             setHousePick({id:PICKS[index].id, name:PICKS[index].name,src:PICKS[index].src})
         }, 1000)
