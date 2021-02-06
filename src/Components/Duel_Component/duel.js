@@ -14,7 +14,7 @@ const DisplayDuel = ({handleClick, myPick, setIsPlaying}) => {
             {gameResult ? 
             <PicksWrapper>
                 <SinglePick className={binaryWin === 1 ? 'winner': ''} disabled duel color={myPick.name} name={myPick} onClick={(e) => handleClick(e.target.name)}>
-                    <ImageWrapper><img src={myPick.src} /></ImageWrapper>
+                    <ImageWrapper><img alt="your-pick" src={myPick.src} /></ImageWrapper>
                 </SinglePick>
                     <ResultsWrapper>
                         <Result>
@@ -26,7 +26,7 @@ const DisplayDuel = ({handleClick, myPick, setIsPlaying}) => {
                     </ResultsWrapper> 
                     {housePick.name !== null ? 
                         <SinglePick className={binaryWin === 0 ? 'winner': ''} disabled duel color={housePick.name} name={housePick} onClick={(e) => handleClick(e.target.name)}>
-                            <ImageWrapper ><img src={housePick.src} /></ImageWrapper>
+                            <ImageWrapper ><img alt="house-pick" src={housePick.src} /></ImageWrapper>
                         </SinglePick> :''}
             </PicksWrapper> : <Result>Drums Noises...</Result>
             }

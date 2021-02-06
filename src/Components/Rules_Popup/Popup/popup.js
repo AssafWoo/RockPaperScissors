@@ -10,11 +10,11 @@ const Rules = ({ToggleRules}) => {
                         Rules
                     </Header>
                     <CloseButton onClick={()=>ToggleRules()}>
-                    <img src="../../../images/icon-close.svg" />
+                    <img alt="close-icon" src="../../../images/icon-close.svg" />
                     </CloseButton>
                 </PopupHeader>
                 <RulesWrapper>
-                    <img src="../../../images/image-rules.svg" />
+                    <img alt="rules-icon" src="../../../images/image-rules.svg" />
                 </RulesWrapper>
             </InnerPopup>
         </Popup>

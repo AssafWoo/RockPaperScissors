@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <Wrapper>
             <Heading>
-                <img src="../../../images/logo.svg" />
+                <img alt="logo" src="../../../images/logo.svg" />
             </Heading>
             <Score>
                 <ScoreContent>
