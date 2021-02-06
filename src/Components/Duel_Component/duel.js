@@ -1,24 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import { ResultsWrapper, Result, ResetButton} from './style';
 import {PicksWrapper, SinglePick, ImageWrapper} from '../Common_Styles/style';
 import { useWinner } from '../Hooks/useWinner';
-
-const PICKS = [{id:1, name:"scissors", src:"../../../images/icon-scissors.svg"}, {id:2, name:'paper', src:"../../../images/icon-paper.svg"}, {id:3,name:'rock', src:"../../../images/icon-rock.svg"}]
+import useSetHouse from '../Hooks/useSetHouse';
 
 
 const DisplayDuel = ({handleClick, myPick, setIsPlaying}) => {
-    // generate random numbder to pick an option from the PICKS array
-    const randomNumber = Math.floor(Math.random() * 3) + 1;
-    const index = PICKS.findIndex( x => x?.id === randomNumber);
-
-    const [housePick, setHousePick] = useState({id:null, name:null,src:null});
+    const housePick = useSetHouse();
     const {gameResult, gameWinner, binaryWin} = useWinner(housePick, myPick);
-
-    useEffect(() => { // create sort of dramatic tension
-        setTimeout(() => {
-            setHousePick({id:PICKS[index].id, name:PICKS[index].name,src:PICKS[index].src})
-        }, 1000)
-    },[])
 
     return (
         <Fragment>

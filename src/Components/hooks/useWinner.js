@@ -7,8 +7,9 @@ export const useWinner = (housePick, myPick) => {
     const [ gameResult, setGameResult] = useState(false);
     const [ gameWinner, setGameWinner] = useState('');
     const [binaryWin, setBinaryWin] = useState(0);
-
     const { dispatch } = useContext(Store);
+
+    
     useEffect(() => {  
         if(housePick?.id === 1 && myPick?.id === 3) {
             dispatch({type:'SCORE_UP', payload:1})
