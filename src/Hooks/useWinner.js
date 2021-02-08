@@ -1,5 +1,5 @@
 import {useEffect, useState,useContext } from 'react';
-import Store from '../../Context/context';
+import Store from '../Context/context';
 
 
 // winner logic
@@ -10,48 +10,56 @@ export const useWinner = (housePick, myPick) => {
     const { dispatch } = useContext(Store);
 
     
-    useEffect(() => {  
+    useEffect(() => {  // rock wins scissors
         if(housePick?.id === 1 && myPick?.id === 3) {
             dispatch({type:'SCORE_UP', payload:1})
             setGameWinner('You Win')
+            setGameResult(true)
+
             setBinaryWin(1)
-            setGameResult(true)
         }
-        else if(housePick?.id === 1 && myPick?.id === 2) {
+        else if(housePick?.id === 1 && myPick?.id === 2) { // scissors beats paper
             dispatch({type:'SCORE_DOWN', payload:1})
             setGameWinner('House Wins')
-            setBinaryWin(0)
             setGameResult(true)
+
+            setBinaryWin(0)
         }
-        else if(housePick?.id === 2 && myPick?.id === 3) {
+        else if(housePick?.id === 2 && myPick?.id === 3) { // paper beats rock
             dispatch({type:'SCORE_DOWN', payload:1})
             setGameWinner('House Wins')
-            setBinaryWin(0)
             setGameResult(true)
+
+            setBinaryWin(0)
         }
-        else if(housePick?.id === 2 && myPick?.id === 1) {
+        else if(housePick?.id === 2 && myPick?.id === 1) { // scissors beats paper
             dispatch({type:'SCORE_UP', payload:1})
             setGameWinner('You Win')
-            setBinaryWin(1)
             setGameResult(true)
+
+            setBinaryWin(1)
         }
-        else if(housePick?.id === 3 && myPick?.id === 1) {
+        else if(housePick?.id === 3 && myPick?.id === 1) { // rock beats scissors
             dispatch({type:'SCORE_DOWN', payload:1})
             setGameWinner('House Wins')
-            setBinaryWin(0)
             setGameResult(true)
+
+            setBinaryWin(0)
         }
-        else if(housePick?.id === 3 && myPick?.id === 2) {
+        else if(housePick?.id === 3 && myPick?.id === 2) { // paper beats rock
             dispatch({type:'SCORE_UP', payload:1})
             setGameWinner('You Win')
-            setBinaryWin(1)
             setGameResult(true)
+
+            setBinaryWin(1)
         }
-        else if(housePick?.id === myPick?.id) {
+        else if(housePick?.id === myPick?.id) { // draw
             setGameWinner('Draw')
             setGameResult(true)
+
             setBinaryWin(2)
         }
-    },[housePick])
+
+    },[dispatch, housePick, myPick?.id])
     return { gameResult, gameWinner, binaryWin }
 }

@@ -1,9 +1,7 @@
-import React, {Fragment} from 'react';
-import {PicksWrapper, SinglePick, ImageWrapper} from '../Common_Styles/style';
+import React, { Fragment } from 'react';
+import {PicksWrapper, SinglePick, ImageWrapper} from '../styles/style';
 
-const UserPick = ({handleClick}) => {
-    return(
-
+const ChooseYourPick = ({handleClick}) => (
         <Fragment>
             <PicksWrapper>
                 <SinglePick color="scissors" onClick={() => handleClick({id:1, name:'scissors', src:"../../../images/icon-scissors.svg"})}>
@@ -18,8 +16,7 @@ const UserPick = ({handleClick}) => {
                     <ImageWrapper><img alt="rock" src="../../../images/icon-rock.svg" /></ImageWrapper>
                 </SinglePick>
             </PicksWrapper>
-        </Fragment> 
-        )
-}
+        </Fragment>
+    )
 
-export default UserPick;
+export default ChooseYourPick;

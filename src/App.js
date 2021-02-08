@@ -1,14 +1,14 @@
 import React, {useContext, useReducer, useState} from 'react';
 import './App.css';
-import ChooseYourPick from './Components/Main_Component/main';
+import ChooseYourPick from './Components/userOptions/userOptions';
 import Store from './Context/context';
-import Rules from './Components/Rules_Popup/Popup/popup';
-import {Body} from './Components/Common_Styles/style';
-import { usePersistedContext, usePersistedReducer } from "./Components/Hooks/usePersist";
+import Rules from './Components/rules/Popup/popup';
+import {Body} from './Components/styles/style';
+import { usePersistedContext, usePersistedReducer } from "./Hooks/usePersist";
 import reducer from './Context/reducer/reducer';
-import Header from './Components/Header/header';
-import RulesButton from './Components/Rules_Popup/Button/button';
-import DisplayDuel from './Components/Duel_Component/duel';
+import Header from './Components/header/header';
+import RulesButton from './Components/rules/Button/button';
+import DisplayDuel from './Components/duel/duel';
 
 
 const UserInterface = {

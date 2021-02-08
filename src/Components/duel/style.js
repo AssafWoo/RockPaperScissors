@@ -26,7 +26,7 @@ export const ResultsWrapper = styled.div`
     position:relative;
     flex-wrap:wrap;
     flex-direction: column;
-    transition: all 1s ease-out;
+    transition: all 2s ease-out;
     @media screen and (max-width: 1366px){
         position:absolute;
         top:60%;

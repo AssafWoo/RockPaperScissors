@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DarkText } from '../../Common_Styles/style';
+import { DarkText } from '../../styles/style';
 
 export const Popup = styled.div`   
     position: fixed;  

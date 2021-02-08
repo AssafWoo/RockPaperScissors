@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import { ResultsWrapper, Result, ResetButton} from './style';
-import {PicksWrapper, SinglePick, ImageWrapper} from '../Common_Styles/style';
-import { useWinner } from '../Hooks/useWinner';
-import useSetHouse from '../Hooks/useSetHouse';
+import {PicksWrapper, SinglePick, ImageWrapper} from '../styles/style';
+import { useWinner } from '../../Hooks/useWinner';
+import useSetHouse from '../../Hooks/useSetHouse';
 
 
 const DisplayDuel = ({handleClick, myPick, setIsPlaying}) => {
     const housePick = useSetHouse();
     const {gameResult, gameWinner, binaryWin} = useWinner(housePick, myPick);
-
+    console.log(gameResult)
     return (
         <Fragment>
             {gameResult ? 

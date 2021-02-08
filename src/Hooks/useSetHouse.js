@@ -9,7 +9,7 @@ const useSetHouse = () => {
     useEffect(() => { // create sort of dramatic tension
         setTimeout(() => {
             setHousePick({id:PICKS[index].id, name:PICKS[index].name,src:PICKS[index].src})
-        }, 1000)
+        }, 1000);
     },[])
     return housePick;
 }
