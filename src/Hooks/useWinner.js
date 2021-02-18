@@ -10,53 +10,22 @@ export const useWinner = (housePick, myPick) => {
     const { dispatch } = useContext(Store);
 
     
-    useEffect(() => {  // rock wins scissors
-        if(housePick?.id === 1 && myPick?.id === 3) {
+    useEffect(() => { 
+        if((housePick?.id === 1 && myPick?.id === 3) || (housePick?.id === 2 && myPick?.id === 1) || (housePick?.id === 3 && myPick?.id === 2)) {
             dispatch({type:'SCORE_UP', payload:1})
             setGameWinner('You Win')
             setGameResult(true)
-
             setBinaryWin(1)
         }
-        else if(housePick?.id === 1 && myPick?.id === 2) { // scissors beats paper
+        else if((housePick?.id === 1 && myPick?.id === 2) || (housePick?.id === 2 && myPick?.id === 3) || (housePick?.id === 3 && myPick?.id === 1)) { // scissors beats paper
             dispatch({type:'SCORE_DOWN', payload:1})
             setGameWinner('House Wins')
             setGameResult(true)
-
             setBinaryWin(0)
         }
-        else if(housePick?.id === 2 && myPick?.id === 3) { // paper beats rock
-            dispatch({type:'SCORE_DOWN', payload:1})
-            setGameWinner('House Wins')
-            setGameResult(true)
-
-            setBinaryWin(0)
-        }
-        else if(housePick?.id === 2 && myPick?.id === 1) { // scissors beats paper
-            dispatch({type:'SCORE_UP', payload:1})
-            setGameWinner('You Win')
-            setGameResult(true)
-
-            setBinaryWin(1)
-        }
-        else if(housePick?.id === 3 && myPick?.id === 1) { // rock beats scissors
-            dispatch({type:'SCORE_DOWN', payload:1})
-            setGameWinner('House Wins')
-            setGameResult(true)
-
-            setBinaryWin(0)
-        }
-        else if(housePick?.id === 3 && myPick?.id === 2) { // paper beats rock
-            dispatch({type:'SCORE_UP', payload:1})
-            setGameWinner('You Win')
-            setGameResult(true)
-
-            setBinaryWin(1)
-        }
-        else if(housePick?.id === myPick?.id) { // draw
+        else if(housePick?.id === myPick?.id) {
             setGameWinner('Draw')
             setGameResult(true)
-
             setBinaryWin(2)
         }
 
